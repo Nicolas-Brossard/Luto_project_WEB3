@@ -2,26 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply bg-[#101217];
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .stats {
+    @apply bg-[#2b4343] text-white p-4 flex-1 rounded-md border-[#61dad6ba] border-2;
+  }
+
+  .stats-container {
+    @apply bg-[#2b4343] p-5 rounded-lg border-[#61dad6ba] border flex-1;
+  }
+
+  .countdown {
+    @apply p-8 text-5xl text-center text-white rounded-lg min-w-[130px] lg:min-w-[150px] bg-[#101217];
+  }
+
+  .countdown-label {
+    @apply text-center text-white uppercase text-sm pt-4;
+  }
+
+  .admin-button {
+    @apply bg-[#2b4343] p-2 rounded-md border-[#61dad6ba] border text-white hover:cursor-pointer;
+  }
 }
